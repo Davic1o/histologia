@@ -18,8 +18,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('role')->default('user');
-            $table->string('permission')->default('lectura'); 
+            // Agregar la columna role
+            $table->string('role')->default('user'); // Puedes establecer un valor por defecto
             $table->timestamps();
         });
     }
