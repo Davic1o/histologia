@@ -1,0 +1,247 @@
+/* Layout & Container Styles */
+.section {
+    width: 100%;
+    padding: 80px 0;
+}
+
+.section-fluid {
+    padding: 0;
+}
+
+.section-sm {
+    padding: 60px 0;
+}
+
+.section-first {
+    padding-top: 100px;
+}
+
+.section-last {
+    padding-bottom: 100px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Google Map Styles */
+.google-map-container {
+    width: 100%;
+    height: 450px;
+}
+
+.google-map {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Contact Box Styles */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+}
+
+.row-30 {
+    margin: -15px;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.col-sm-8 {
+    padding: 15px;
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .col-sm-8 {
+        width: 66.66667%;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-6 {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-4 {
+        width: 33.33333%;
+    }
+}
+
+.box-contacts {
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 30px;
+    height: 100%;
+}
+
+.box-contacts-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-contacts-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00bfa5;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.box-contacts-decor {
+    width: 48px;
+    height: 2px;
+    background-color: #00bfa5;
+    margin: 15px 0;
+}
+
+.box-contacts-link {
+    margin: 5px 0;
+}
+
+.box-contacts-link a {
+    color: #666666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.box-contacts-link a:hover {
+    color: #00bfa5;
+}
+
+/* Contact Form Styles */
+.title-classic {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title-classic-title h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+.title-classic-text {
+    color: #666666;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.rd-form {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.row-14 {
+    margin: -7px;
+}
+
+.gutters-14 {
+    margin-right: -7px;
+    margin-left: -7px;
+}
+
+.gutters-14 > * {
+    padding-right: 7px;
+    padding-left: 7px;
+}
+
+.form-wrap {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #00bfa5;
+    outline: none;
+}
+
+.textarea-lg {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-label {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    padding: 0 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #666666;
+    background-color: #ffffff;
+}
+
+/* Button Styles */
+.button {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.button-primary {
+    background-color: #00bfa5;
+    color: #ffffff;
+}
+
+.button-primary:hover {
+    background-color: #00a896;
+}
+
+.button-pipaluk {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Icons */
+.fl-bigmug-line-cellphone55::before {
+    content: '📱';
+}
+
+.fl-bigmug-line-up104::before {
+    content: '📍';
+}
+
+.fl-bigmug-line-chat55::before {
+    content: '✉️';
+}

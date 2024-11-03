@@ -6,7 +6,8 @@ import Ini from '../Components/Ini'; // Ajusta la ruta según la ubicación de i
 import ServicesSection from '../Components/ServicesSection';
 import FooterP from '../Components/footerP'; // Ajusta la ruta según la ubicación de footer.jsx
 import About from '../Components/About'; // Ajusta la ruta según la ubicación de About.jsx
-
+import Proyectos from '../Components/Proyectos'; // Ajusta la ruta según la ubicación de Proyectos.jsx
+import Contacts from '../Components/Contacts'; // Ajusta la ruta según la ubicación de Contacts.jsx
 const Welcome = ({ canLogin, canRegister, laravelVersion, phpVersion }) => {
   return (
     <div>
@@ -14,7 +15,8 @@ const Welcome = ({ canLogin, canRegister, laravelVersion, phpVersion }) => {
       <Header />
       {/*<Ini />
       <ServicesSection />*/}
-      <About/>
+      <Contacts/>
+      
       <FooterP />
       
 

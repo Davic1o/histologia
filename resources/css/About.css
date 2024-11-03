@@ -160,21 +160,26 @@
 .row-30 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: -15px;
+    justify-content: center; /* Para asegurar el centrado */
+    align-items: center; /* Centra verticalmente */
+    gap: 20px; /* Espaciado entre elementos */
     width: 100%;
+    margin: 0 auto;
 }
 
 .row-30 > [class*="col-"] {
     padding: 15px;
     display: flex;
     justify-content: center;
+    flex: 0 0 300px; /* Ancho fijo para cada tarjeta */
+    max-width: 300px;
 }
 
 /* Coordinador específicamente */
 .row-30.justify-content-center:first-of-type {
     max-width: 400px;
     margin: 0 auto;
+    flex-wrap: nowrap; /* fila de investigador y equipo */
 }
 
 /* Estilos para la tarjeta del equipo */
@@ -328,5 +333,205 @@
     
     .row-30 > [class*="col-"] {
         width: 100%;
+    }
+}
+/* estilo para las ciudades*/
+.section {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .swiper-container {
+    position: relative;
+    padding: 2rem 0;
+  }
+  
+  /* Oculta las flechas de navegación laterales */
+  .swiper-button-next, .swiper-button-prev {
+    display: none;
+  }
+  
+  .thumbnail-mary-figure {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .thumbnail-link {
+    display: block;
+    position: relative;
+  }
+  
+  .thumbnail-overlay {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+  
+  .thumbnail-image {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+    filter: brightness(50%);
+  }
+  
+  .thumbnail-mary-figure:hover .thumbnail-image {
+    transform: scale(1.05); /* Efecto de zoom suave */
+  }
+  
+  /* Icono de lupa con borde alrededor de la imagen */
+  .zoom-icon {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 2px solid white;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .zoom-icon-inner {
+    font-size: 24px;
+    color: white;
+  }
+  
+  .thumbnail-mary-figure:hover .zoom-icon {
+    opacity: 1;
+  }
+  
+  .thumbnail-mary-description {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+  
+  .thumbnail-mary-project {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Ajustes para los botones de paginación */
+  .swiper-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #333;
+    opacity: 0.5;
+    border-radius: 0; /* Convertimos los botones en cuadrados */
+    margin: 0 5px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+  
+  /* Ubica la paginación debajo de los nombres de las ciudades */
+  .container .swiper-container + .swiper-pagination {
+    margin-top: 1rem;
+  }
+  
+
+  /* paralax */
+/* Sección de fondo parallax */
+/* Estilos para la sección principal */
+.section-fluid {
+    padding: 60px 0;
+}
+
+.parallax-container {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-overlay-26 {
+    background-color: rgba(0, 0, 0, 0.26); /* Superposición con transparencia */
+    padding: 60px 0;
+    color: #fff;
+}
+
+.context-dark {
+    color: #ffffff;
+}
+
+/* Estilos para la cuadrícula de contadores */
+.row-50 {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Estilos para el contenedor de cada contador */
+.counter-classic {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.counter-classic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.counter-classic-number {
+    font-size: 48px;
+    font-weight: bold;
+    color: #00c3ff;
+    margin-bottom: 10px;
+}
+
+.counter-classic-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+    .row-50 {
+        gap: 30px;
+    }
+    
+    .counter-classic-number {
+        font-size: 36px;
+    }
+    
+    .counter-classic-title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .counter-classic {
+        padding: 15px;
+    }
+    
+    .counter-classic-number {
+        font-size: 32px;
     }
 }

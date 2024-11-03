@@ -1,0 +1,161 @@
+/* Estilos para la sección de breadcrumbs */
+.breadcrumbs-custom {
+    position: relative;
+    padding: 80px 0;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.breadcrumbs-custom-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.breadcrumbs-custom-path {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.breadcrumbs-custom-path li {
+    font-size: 16px;
+}
+
+.breadcrumbs-custom-path li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.breadcrumbs-custom-path li.active {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.bg-overlay-60 {
+    position: relative;
+    z-index: 1;
+}
+
+.bg-overlay-60::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+@keyframes slowMove {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.box-position {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 100px);
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    animation: slowMove 15s ease-in-out infinite;
+}
+
+/* Separación entre secciones */
+.section-separation {
+    height: 60px;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Grid de imágenes */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px; /* Compensar el padding de las columnas */
+    margin-bottom: 30px; /* Espacio entre filas */
+}
+
+.col-md-4 {
+    width: 33.333333%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Contenedor de imágenes */
+.image-container {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    aspect-ratio: 16/9; /* Mantener proporción consistente */
+}
+
+.image-container:hover {
+    transform: translateY(-5px);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .col-md-4 {
+        width: 50%; /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .breadcrumbs-custom {
+        padding: 60px 0;
+    }
+    
+    .breadcrumbs-custom-title {
+        font-size: 36px;
+    }
+    
+    .col-md-4 {
+        width: 100%; /* 1 columna en móviles */
+    }
+    
+    .overlay-text {
+        font-size: 16px;
+        padding: 15px;
+    }
+}
