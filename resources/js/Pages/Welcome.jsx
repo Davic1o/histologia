@@ -19,26 +19,6 @@ const Welcome = ({ canLogin, canRegister, laravelVersion, phpVersion }) => {
       
       <FooterP />
       
-
-
-      <h1>Welcome to Our Application</h1>
-      <div>
-        <p>Laravel Version: {laravelVersion}</p>
-        <p>PHP Version: {phpVersion}</p>
-      </div>
-
-      <div>
-        {canLogin && (
-          <Link href="/login" className="btn btn-primary">
-            Login
-          </Link>
-        )}
-        {canRegister && (
-          <Link href="/register" className="btn btn-secondary">
-            Register
-          </Link>
-        )}
-      </div>
     </div>
   );
 };
