@@ -13,7 +13,7 @@ const Header = () => {
           <div className="rd-navbar-nav-wrap">
             {/* Menú de navegación */}
             <ul className="rd-navbar-nav">
-              <li className="rd-nav-item"><a className="rd-nav-link" href="index.html">INICIO</a></li>
+              <li className="rd-nav-item"><a className="rd-nav-link" href="Ini.jsx">INICIO</a></li>
               <li className="rd-nav-item"><a className="rd-nav-link" href="about.html">GENTE</a></li>
               <li className="rd-nav-item"><a className="rd-nav-link" href="typography.html">PROYECTOS I+D</a></li>
               <li className="rd-nav-item"><a className="rd-nav-link" href="contact-us.html">CONTACTOS</a></li>
