@@ -2,12 +2,10 @@
 import React from 'react';
 import Header from '@/Components/header'; 
 import FooterP from '@/Components/footerP'; 
-const Welcome = ({children}) => {
+const Welcome = () => {
   return (
     <div>
-      <Header />
-      {children}
-      <FooterP />
+hola
       
     </div>
   );

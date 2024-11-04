@@ -1,29 +1,25 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/',[LandingController::class, 'home'])->name('landing.home');
 Route::get('/Gente',[LandingController::class, 'gente'])->name('landing.gente');
-Route::get('/Proyectos',[LandingController::class, 'proyectos'])->name('landing.proyectos');
-Route::get('/Contactos',[LandingController::class, 'contactos'])->name('landing.contacto');
+Route::get('/proyectos',[LandingController::class, 'proyectos'])->name('landing.proyectos');
+Route::get('/Contacto',[LandingController::class, 'contacto'])->name('landing.contacto');
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::middleware(['role:Doctor'])->group(function () {
-        Route::get('/Doctor/Home', [DoctorController::class, 'index'])->name('doctor.home');
-    });
-
-    Route::middleware(['role:Administrador'])->group(function () {
-        Route::get('/Admin/Home', [AdminController::class, 'index'])->name('admin.home');
-    });
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
-
-
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

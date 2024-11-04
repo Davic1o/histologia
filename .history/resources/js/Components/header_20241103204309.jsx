@@ -14,10 +14,10 @@ const Header = () => {
           <div className="rd-navbar-nav-wrap">
             {/* Menú de navegación */}
             <ul className="rd-navbar-nav">
-              <li className="rd-nav-item"><Link className="rd-nav-link" href="/">INICIO</Link></li>
-              <li className="rd-nav-item"><Link className="rd-nav-link" href="/Gente">GENTE</Link></li>
-              <li className="rd-nav-item"><Link className="rd-nav-link" href="/Proyectos">PROYECTOS I+D</Link></li>
-              <li className="rd-nav-item"><Link className="rd-nav-link" href="/Contactos">CONTACTOS</Link></li>
+              <li className="rd-nav-item"><Link className="rd-nav-link" href="Ini.jsx">INICIO</Link></li>
+              <li className="rd-nav-item"><Link className="rd-nav-link" href="about.html">GENTE</Link></li>
+              <li className="rd-nav-item"><Link className="rd-nav-link" href="typography.html">PROYECTOS I+D</Link></li>
+              <li className="rd-nav-item"><Link className="rd-nav-link" href="contact-us.html">CONTACTOS</Link></li>
             </ul>
             {/* Lista de iconos sociales */}
             <ul className="rd-navbar-corporate-list-social">

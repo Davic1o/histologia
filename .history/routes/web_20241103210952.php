@@ -18,7 +18,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/Doctor/Home', [DoctorController::class, 'index'])->name('doctor.home');
     });
 
-    Route::middleware(['role:Administrador'])->group(function () {
+    Route::middleware(['role:Admin'])->group(function () {
         Route::get('/Admin/Home', [AdminController::class, 'index'])->name('admin.home');
     });
 });

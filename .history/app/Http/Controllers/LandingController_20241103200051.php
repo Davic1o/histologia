@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
 use Inertia\Inertia;
 
 class LandingController extends Controller
 {
     public function home(){
-        return Inertia::render('Landing/Welcome');
+        return Inertia::render('Landing/Home');
     }
     public function gente(){
         

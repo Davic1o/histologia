@@ -9,7 +9,10 @@ use Inertia\Inertia;
 class LandingController extends Controller
 {
     public function home(){
-        return Inertia::render('Landing/Welcome');
+        return Inertia::render('Landing/Welcome', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register')
+        ]);
     }
     public function gente(){
         

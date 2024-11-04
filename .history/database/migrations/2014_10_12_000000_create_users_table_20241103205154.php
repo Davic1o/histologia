@@ -18,10 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            
-            // Definir role como un enum con valores 'Doctor' y 'Administrador'
-            $table->enum('role', ['Doctor', 'Administrador'])->default('Doctor');
-            
+            $table->string('role')->default('Doctor');
             $table->string('permission')->default('lectura'); 
             $table->timestamps();
         });

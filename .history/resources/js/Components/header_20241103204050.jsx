@@ -3,7 +3,7 @@ import React from 'react';
 import "../../css/Header.css"; // Ruta al archivo CSS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faTwitter, faGoogle, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faSignInAlt, faSignOutAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { faSignInAlt, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { Link } from '@inertiajs/react';
 
 const Header = () => {
@@ -14,10 +14,10 @@ const Header = () => {
           <div className="rd-navbar-nav-wrap">
             {/* Menú de navegación */}
             <ul className="rd-navbar-nav">
-              <li className="rd-nav-item"><Link className="rd-nav-link" href="/">INICIO</Link></li>
-              <li className="rd-nav-item"><Link className="rd-nav-link" href="/Gente">GENTE</Link></li>
-              <li className="rd-nav-item"><Link className="rd-nav-link" href="/Proyectos">PROYECTOS I+D</Link></li>
-              <li className="rd-nav-item"><Link className="rd-nav-link" href="/Contactos">CONTACTOS</Link></li>
+              <li className="rd-nav-item"><a className="rd-nav-link" href="Ini.jsx">INICIO</a></li>
+              <li className="rd-nav-item"><a className="rd-nav-link" href="about.html">GENTE</a></li>
+              <li className="rd-nav-item"><a className="rd-nav-link" href="typography.html">PROYECTOS I+D</a></li>
+              <li className="rd-nav-item"><a className="rd-nav-link" href="contact-us.html">CONTACTOS</a></li>
             </ul>
             {/* Lista de iconos sociales */}
             <ul className="rd-navbar-corporate-list-social">
@@ -25,7 +25,6 @@ const Header = () => {
               <li><a href="#" className="icon"><FontAwesomeIcon icon={faTwitter} /></a></li>
               <li><a href="#" className="icon"><FontAwesomeIcon icon={faGoogle} /></a></li>
               <li><a href="#" className="icon"><FontAwesomeIcon icon={faInstagram} /></a></li>
-              <li><Link href="/register" className="icon" title="Registrar"><FontAwesomeIcon icon={faUserPlus} /></Link></li>
               <li><Link href="/login" className="icon" title="Iniciar sesión"><FontAwesomeIcon icon={faSignInAlt} /></Link></li>
             </ul>
           </div>

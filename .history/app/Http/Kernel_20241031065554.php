@@ -45,13 +45,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-        
     ];
-    protected $routeMiddleware = [
-        // Otros middlewares
-        'role' => \App\Http\Middleware\RoleMiddleware::class,
-    ];
-    
 
     /**
      * The application's middleware aliases.

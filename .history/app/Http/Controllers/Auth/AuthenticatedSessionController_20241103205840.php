@@ -34,13 +34,16 @@ class AuthenticatedSessionController extends Controller
     
         $request->session()->regenerate();
     
+        // Obtener el rol del usuario autenticado
         $userRole = Auth::user()->role;
     
+        // Redireccionar según el rol
         if ($userRole === 'Doctor') {
             return redirect()->intended('/Doctor/Home');
         } elseif ($userRole === 'Administrador') {
             return redirect()->intended('/Admin/Home');
         } else {
+            // Ruta por defecto para otros roles si es necesario
             return redirect()->intended('/');
         }
     }
