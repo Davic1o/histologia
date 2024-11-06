@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TypeTissue extends Model
 {
     use HasFactory;
-    protected $table = '';
+    protected $table = 'type_tissues';
     protected $fillable = [
         'name',
         'codigo',

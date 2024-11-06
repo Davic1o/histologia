@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { EyeIcon, PencilIcon } from 'lucide-react';
 import UpdateSampleForm from './UpdateSampleForm';
+import Modal from '@/Components/Modal';
+import Visor from '@/Components/Visor';
 
 const HistologiaTable = ({ muestras, TypeTissues, user }) => {
     const [isEditing, setIsEditing] = useState(false);
+    const [isVisor, setVisor] = useState(false);
     const [selectedSample, setSelectedSample] = useState(null);
 
     const formatDate = (date) => {
@@ -20,7 +23,8 @@ const HistologiaTable = ({ muestras, TypeTissues, user }) => {
     };
 
     const handleView = (id) => {
-        console.log('Ver detalles de la muestra:', id);
+        setVisor(true);
+        console.log('Ver detalles de la muestra:', isVisor);
     };
 
     const handleEdit = (sample) => {
@@ -61,12 +65,11 @@ const HistologiaTable = ({ muestras, TypeTissues, user }) => {
                                     <button onClick={() => handleView(muestra.id)}>
                                         <EyeIcon className="h-5 w-5 text-blue-600 hover:text-blue-800" />
                                     </button>
-                                    {user.permission ==='total'?
-                                    <button onClick={() => handleEdit(muestra)}>
-                                        <PencilIcon className="h-5 w-5 text-yellow-600 hover:text-yellow-800" />
-                                    </button>
-                                    
-                                    :''}
+                                    {user.permission === 'total' && (
+                                        <button onClick={() => handleEdit(muestra)}>
+                                            <PencilIcon className="h-5 w-5 text-yellow-600 hover:text-yellow-800" />
+                                        </button>
+                                    )}
                                 </td>
                             </tr>
                         ))
@@ -87,6 +90,11 @@ const HistologiaTable = ({ muestras, TypeTissues, user }) => {
                     TypeTissues={TypeTissues}
                 />
             )}
+
+            {/* Modal de Visor */}
+            <Modal show={isVisor} onClose={() => setVisor(false)}>
+                <Visor />
+            </Modal>
         </div>
     );
 };
