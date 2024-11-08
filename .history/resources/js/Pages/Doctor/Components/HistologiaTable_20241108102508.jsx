@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { EyeIcon, PencilIcon } from 'lucide-react';
 import UpdateSampleForm from './UpdateSampleForm';
+<<<<<<< HEAD
 import Modal from '@/Pages/Doctor/Components/Modal'
 import OpenSeadragonViewer from './OpenSeadragonViewer';
+=======
+import Modal from '@/Components/Modal';
 import Visor from '@/Components/Visor';
+>>>>>>> 3a0280be5883b9d948e040f37229b6a964c8f3ae
 
 const HistologiaTable = ({ muestras, TypeTissues, user }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,11 +34,14 @@ const HistologiaTable = ({ muestras, TypeTissues, user }) => {
         return `${day}/${month}/${year} ${hours}:${minutes}`;
     };
 
+<<<<<<< HEAD
 
+=======
     const handleView = (id) => {
         setVisor(true);
         console.log('Ver detalles de la muestra:', isVisor);
     };
+>>>>>>> 3a0280be5883b9d948e040f37229b6a964c8f3ae
 
     const handleEdit = (sample) => {
         setSelectedSample(sample);
@@ -99,8 +106,15 @@ const HistologiaTable = ({ muestras, TypeTissues, user }) => {
                     TypeTissues={TypeTissues}
                 />
             )}
+<<<<<<< HEAD
              <Modal isOpen={isModalOpen} onClose={closeModal}>
              <OpenSeadragonViewer imagenDzi="312426.dzi" muestraId={selectedSampleId} />
+=======
+
+            {/* Modal de Visor */}
+            <Modal show={isVisor} onClose={() => setVisor(false)}>
+                <Visor />
+>>>>>>> 3a0280be5883b9d948e040f37229b6a964c8f3ae
             </Modal>
         </div>
     );
