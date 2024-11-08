@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { EyeIcon, PencilIcon } from 'lucide-react';
 import UpdateSampleForm from './UpdateSampleForm';
+<<<<<<< HEAD
 import Modal from '@/Pages/Doctor/Components/Modal'
 import OpenSeadragonViewer from './OpenSeadragonViewer';
+=======
+import Modal from '@/Components/Modal';
+import Visor from '@/Components/Visor';
+>>>>>>> 3a0280be5883b9d948e040f37229b6a964c8f3ae
 
 const HistologiaTable = ({ muestras, TypeTissues, user }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +17,7 @@ const HistologiaTable = ({ muestras, TypeTissues, user }) => {
     };
     const closeModal = () => setIsModalOpen(false);
     const [isEditing, setIsEditing] = useState(false);
+    const [isVisor, setVisor] = useState(false);
     const [selectedSample, setSelectedSample] = useState(null);
     const [selectedSampleId, setSelectedSampleId] = useState(null);
 
@@ -28,7 +34,14 @@ const HistologiaTable = ({ muestras, TypeTissues, user }) => {
         return `${day}/${month}/${year} ${hours}:${minutes}`;
     };
 
+<<<<<<< HEAD
 
+=======
+    const handleView = (id) => {
+        setVisor(true);
+        console.log('Ver detalles de la muestra:', isVisor);
+    };
+>>>>>>> 3a0280be5883b9d948e040f37229b6a964c8f3ae
 
     const handleEdit = (sample) => {
         setSelectedSample(sample);
@@ -67,6 +80,7 @@ const HistologiaTable = ({ muestras, TypeTissues, user }) => {
                                 <td className="p-3 flex gap-2">
                                 <div onClick={() => openModal(muestra.id)}>
                                         <EyeIcon className="h-5 w-5 text-blue-600 hover:text-blue-800" />
+<<<<<<< HEAD
                                     </div>
                                     {user.permission ==='total'?
                                     <div onClick={() => handleEdit(muestra)}>
@@ -74,6 +88,14 @@ const HistologiaTable = ({ muestras, TypeTissues, user }) => {
                                     </div>
                                     
                                     :''}
+=======
+                                    </button>
+                                    {user.permission === 'total' && (
+                                        <button onClick={() => handleEdit(muestra)}>
+                                            <PencilIcon className="h-5 w-5 text-yellow-600 hover:text-yellow-800" />
+                                        </button>
+                                    )}
+>>>>>>> 3a0280be5883b9d948e040f37229b6a964c8f3ae
                                 </td>
                             </tr>
                         ))
@@ -94,8 +116,15 @@ const HistologiaTable = ({ muestras, TypeTissues, user }) => {
                     TypeTissues={TypeTissues}
                 />
             )}
+<<<<<<< HEAD
              <Modal isOpen={isModalOpen} onClose={closeModal}>
              <OpenSeadragonViewer imagenDzi="312426.dzi" muestraId={selectedSampleId} />
+=======
+
+            {/* Modal de Visor */}
+            <Modal show={isVisor} onClose={() => setVisor(false)}>
+                <Visor />
+>>>>>>> 3a0280be5883b9d948e040f37229b6a964c8f3ae
             </Modal>
         </div>
     );

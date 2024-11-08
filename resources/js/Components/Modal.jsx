@@ -48,7 +48,7 @@ export default function Modal({ children, show = false, maxWidth = '2xl', closea
                     <Dialog.Panel
                         className={`mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:mx-auto ${maxWidthClass}`}
                     >
-                        {children}
+                        {children}jojojo
                     </Dialog.Panel>
                 </Transition.Child>
             </Dialog>

@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
-
+use Illuminate\Support\Facades\Auth;
 class DoctorController extends Controller
 {
     public function index()
@@ -42,7 +42,11 @@ class DoctorController extends Controller
     
         // Crear el paciente
         $paciente = Paciente::create([
+<<<<<<< HEAD
             'id_user'=>Auth::id(),
+=======
+            'id_user' => Auth::id(),
+>>>>>>> 3a0280be5883b9d948e040f37229b6a964c8f3ae
             'name' => $request->nombre,
             'ci' => $request->cedula,
         ]);
@@ -54,6 +58,7 @@ class DoctorController extends Controller
             'paciente_id' => $paciente->id,
             'type_tissue_id' => $request->tissues_id,
             'description' => $request->descripcion,
+            'id_user' => Auth::id(),
         ]);
     
         // Procesar y almacenar la imagen, si se proporciona

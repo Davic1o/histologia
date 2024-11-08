@@ -16,6 +16,7 @@ class Muestra extends Model
         'type_tissue_id',    // Cambiado de 'tissues_id' a 'type_tissue_id'
         'description',
         'id_imagen',
+        'id_user',
     ];
 
     public function paciente()
