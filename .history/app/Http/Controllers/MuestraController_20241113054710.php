@@ -1,0 +1,154 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Muestra;
+use App\Models\Paciente;
+use App\Models\TypeTissue;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
+use App\Models\Imagen;
+use Illuminate\Support\Facades\Storage;
+use ZipArchive;
+use Illuminate\Support\Facades\File;
+
+
+class MuestraController extends Controller
+{
+    // Mostrar la lista de muestras
+    public function index()
+    {
+        $muestras = Muestra::with('paciente', 'typeTissue', 'user')->get();
+        return Inertia::render('Admin/Muestras/Home', [
+            'muestras' => $muestras,
+        ]);
+    }
+
+    // Mostrar el formulario de creación de muestra
+    public function create()
+    {
+        $pacientes = Paciente::all();
+        $users = User::all();
+        $typeTissues = TypeTissue::all();
+        return Inertia::render('Admin/Muestras/CreateMuestra', [
+            'pacientes' => $pacientes,
+            'typeTissues' => $typeTissues,
+            'users' => $users,
+        ]);
+    }
+
+    // Guardar una nueva muestra
+    
+    public function store(Request $request)
+    {
+        // Validar los datos de entrada
+        $validated = $request->validate([
+            'code' => 'required|string|max:255|unique:muestras,code',
+            'paciente_id' => 'required|exists:pacientes,id',
+            'type_tissue_id' => 'required|exists:type_tissues,id',
+            'description' => 'nullable|string',
+            'archivo_zip' => 'required|file|mimes:zip', // Validar que el archivo sea un ZIP
+        ]);
+    
+        // Guardar la muestra
+        $muestra = Muestra::create(array_merge($validated, [
+            'id_user' => auth()->id(),
+        ]));
+    
+        // Guardar el archivo ZIP
+        $zipFile = $request->file('archivo_zip');
+        $zipPath = $zipFile->storeAs('public/archivos_zips', $zipFile->getClientOriginalName()); // Ruta de almacenamiento
+    
+        // Descomprimir el archivo ZIP
+        $extractPath = storage_path('app/public/archivos_zips/' . pathinfo($zipPath, PATHINFO_FILENAME));
+        $zip = new ZipArchive;
+        if ($zip->open(storage_path('app/' . $zipPath)) === TRUE) {
+            $zip->extractTo($extractPath); // Extrae el contenido del ZIP
+            $zip->close();
+        }
+    
+        // Eliminar el archivo ZIP después de descomprimir
+        File::delete(storage_path('app/' . $zipPath));
+    
+        // Buscar el archivo .xml en la carpeta descomprimida o en sus subdirectorios
+        $xmlFile = collect(File::allFiles($extractPath))->first(function ($file) {
+            return $file->getExtension() === 'dzi'; // Buscar el archivo XML en todos los subdirectorios
+        });
+    
+        if ($xmlFile) {
+            // Crear una nueva entrada en la tabla 'imagenes' con la ruta del archivo XML
+            Imagen::create([
+                'id_user' => auth()->id(),
+                'dzi_path' => 'storage/archivos_zips/' . pathinfo($zipPath, PATHINFO_FILENAME) . '/' . $xmlFile->getRelativePathname(), // Ruta relativa del archivo XML
+            ]);
+        }
+    
+        return redirect()->route('muestras.index')->with('success', 'Muestra creada exitosamente.');
+    }
+// MuestraController.php
+
+public function updateVisibility(Request $request, $id)
+{
+    // Validar que el valor de visibilidad sea un booleano
+    $validated = $request->validate([
+        'visibilidad' => 'required',
+    ]);
+
+    // Buscar la muestra por su ID
+    $muestra = Muestra::findOrFail($id);
+
+    // Actualizar solo el campo 'visibilidad'
+    $muestra->update([
+        'visibilidad' => $validated['visibilidad'],
+    ]);
+
+    return response()->json(['message' => 'Visibilidad actualizada correctamente']);
+}
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Actualizar una muestra
+    public function update(Request $request, Muestra $muestra)
+    {
+        $validated = $request->validate([
+            'code' => 'required|string|max:255|unique:muestras,code,' . $muestra->id,
+            'paciente_id' => 'required|exists:pacientes,id',
+            'type_tissue_id' => 'required|exists:type_tissues,id',
+            'description' => 'nullable|string',
+        ]);
+
+        $muestra->update($validated);
+
+        return redirect()->route('muestras.index')->with('success', 'Muestra actualizada exitosamente.');
+    }
+
+    // Eliminar una muestra
+    public function destroy(Muestra $muestra)
+    {
+        $muestra->delete();
+        return redirect()->route('muestras.index')->with('success', 'Muestra eliminada exitosamente.');
+    }
+}
